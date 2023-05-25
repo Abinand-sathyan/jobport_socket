@@ -21,7 +21,7 @@ const getUser = (userId) => {
 };
 
 io.on("connection", (socket) => {
-  //    io.emit("welcome","hello this is socket server")
+    //  io.emit("welcome","hello this is socket server")
   //take userid and socket id from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
@@ -31,10 +31,10 @@ io.on("connection", (socket) => {
   //send and getMessage
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     const user = getUser(receiverId);
-    io.to(user.socketId).emit("getMessage", {
-      senderId,
-      text,
-    });
+    // io.to(user.socketId).emit("getMessage", {
+    //   senderId,
+    //   text,
+    // });
   });
 
   //when disconnect
